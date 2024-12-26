@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.htmlredactor.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <!-- Панель инструментов -->
+    <HBox spacing="10">
+        <Button text="Open" onAction="#onOpen"/>
+        <Button text="Save" onAction="#onSave"/>
+        <Button text="Reload" onAction="#onReload"/>
+    </HBox>
+
+    <!-- Редактор и предпросмотр -->
+    <SplitPane dividerPositions="0.5">
+        <!-- Левая панель: Редактор -->
+        <VBox>
+            <Label text="HTML Editor"/>
+            <HTMLEditor fx:id="htmlEditor"/>
+            <Label text="Source Code"/>
+            <TextArea fx:id="sourceCode" wrapText="true"/>
+        </VBox>
+
+        <!-- Правая панель: Предпросмотр -->
+        <VBox>
+            <Label text="Preview"/>
+            <WebView fx:id="webView" prefHeight="400" prefWidth="600"/>
+        </VBox>
+    </SplitPane>
+</VBox>
