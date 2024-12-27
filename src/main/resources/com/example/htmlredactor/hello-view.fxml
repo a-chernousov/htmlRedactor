@@ -16,8 +16,8 @@
         <Button text="Open" onAction="#onOpen"/>
         <Button text="Save" onAction="#onSave"/>
         <Button text="Reload" onAction="#onReload"/>
+        <Button text="Insert Image" onAction="#onInsertImage"/>
     </HBox>
-
     <!-- Редактор и предпросмотр -->
     <SplitPane dividerPositions="0.5">
         <!-- Левая панель: Редактор -->

@@ -28,6 +28,27 @@ public class HelloController {
         sourceCode.setOnKeyReleased(event -> syncSourceToEditor());
     }
 
+    // Вставка картинки
+    @FXML
+    public void onInsertImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
+        File file = fileChooser.showOpenDialog(null);
+
+        if (file != null) {
+            // Получаем путь к файлу
+            String imagePath = file.toURI().toString();
+            // Вставляем HTML-код с изображением
+            String imgTag = "<img src='" + imagePath + "' alt='Image' width='200'/>";
+            htmlEditor.setHtmlText(htmlEditor.getHtmlText() + imgTag);
+            // Синхронизируем с TextArea
+            syncEditorToSource();
+            // Обновляем предпросмотр
+            updatePreview();
+        }
+    }
+
     // Загрузка файла
     @FXML
     public void onOpen(ActionEvent event) {
